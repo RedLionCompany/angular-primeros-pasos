@@ -1,0 +1,18 @@
+<h3>  Listado de súper heroes  </h3>
+
+<h3 *ngIf="itemToDelete; else nothingToDelete">Héroe borrado 
+<small class="text-danger">{{ itemToDelete }}</small> 
+</h3>
+
+<ng-template #nothingToDelete>
+    <h3> Nothing to Delete </h3>
+</ng-template>
+
+
+<button *ngIf="listName.length > 0"  class="btn btn-outline-danger" (click)="deleteItem()">Delete last Hero</button>
+<div *ngIf="listName.length > 0" class="list-container" >
+    <ul class="list">
+      <li  *ngFor="let item of listName">{{ item }} </li>
+    </ul>
+</div>
+
