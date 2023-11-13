@@ -1,0 +1,23 @@
+
+<hr>
+<hr>
+<H3>    Componente List</H3>
+<ul class="list-group">
+    <li *ngFor="
+        let character of charactersComponent, 
+        let i = index, 
+        let isFirst = first, 
+        let isEven = even,
+        let isLast = last" 
+    class="list-group-item d-flex justify-content-between align-i" [ngClass]="{'list-group-item-primary': isEven, 'list-group-item-success':character.power > 2000}">
+        
+        <div>
+            <span class="text-primary">{{ i + 1 }}. </span>
+            <span>{{  character.name }} - </span>
+            <strong> Power: </strong>
+            <span>{{ character.power }}</span>
+        </div>
+
+        <button type="button" class="btn btn-danger" (click)="onDeleteCharacter(i)">X</button>
+    </li>
+</ul>

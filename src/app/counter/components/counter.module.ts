@@ -11,6 +11,4 @@ import { CounterComponent } from "./counter/counter.component";
     ]
 })
 
-export class CounterModule {
-
-}
+export class CounterModule { }
