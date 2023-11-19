@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Character } from '../../interfaces/character.interface';
+import { SalesLine } from '../../interfaces/salesLine.interface';
 
 
 @Component({
@@ -10,21 +10,22 @@ import { Character } from '../../interfaces/character.interface';
 export class ListComponent {
 
 @Input()
-  public charactersComponent:Character[] = [{
-    name: 'Vegeta',
-    power: 8000
+  public charactersComponent:SalesLine[] = [{
+    name: 'Papa',
+    quantity: 0,
+    price: 90000
   },{
-    name: 'Goku',
-    power: 9630
+    name: 'Zanahoria',
+    quantity: 0,
+    price: 80000
   }];
 
   @Output()
-  public onDelete: EventEmitter<number> = new EventEmitter();
-  
+  public onDelete: EventEmitter<string> = new EventEmitter();
 
-
-  onDeleteCharacter(index:number):void{
-    this.onDelete.emit(index);
+  onDeleteCharacter(id:string):void{
+    if(!id) return;
+    this.onDelete.emit(id);
   }
 
 }

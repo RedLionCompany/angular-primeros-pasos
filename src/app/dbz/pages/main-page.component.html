@@ -1,17 +1,17 @@
-<h3> Main Paging is working!</h3>
-
+<h3> Ovidio Ruiz</h3>
+<h5> Frutas del Campo</h5>
 <hr>
 
 <div class="row">
     
     <div class="col">
-        <app-dbz-list [charactersComponent]="dbzService.characters"
-                        (onDelete)="dbzService.onDeleteCharacterMain($event)"
+        <app-dbz-list [charactersComponent]="characters"
+                        (onDelete)="deleteCharacterById($event)"
         ></app-dbz-list>
     </div>
 
     <div class="col">
-        <app-dbz-add-character (onNewCharacter)="dbzService.onNewCharacterMain($event)"></app-dbz-add-character>
+        <app-dbz-add-character (onNewCharacter)="addCharacter($event)"></app-dbz-add-character>
     </div>
     
 </div>

@@ -4,20 +4,33 @@
 <H3>    Componente List</H3>
 <ul class="list-group">
     <li *ngFor="
-        let character of charactersComponent, 
+        let salesLine of charactersComponent, 
         let i = index, 
         let isFirst = first, 
         let isEven = even,
         let isLast = last" 
-    class="list-group-item d-flex justify-content-between align-i" [ngClass]="{'list-group-item-primary': isEven, 'list-group-item-success':character.power > 2000}">
+    class="list-group-item d-flex justify-content-between align-i" [ngClass]="{'list-group-item-primary': isEven, 'list-group-item-success':salesLine.price <= 0}">
         
         <div>
             <span class="text-primary">{{ i + 1 }}. </span>
-            <span>{{  character.name }} - </span>
-            <strong> Power: </strong>
-            <span>{{ character.power }}</span>
+            <span>{{  salesLine.name }} - </span>
+            
+            <strong> Cantidad: </strong>
+            <span>{{ salesLine.quantity}}</span>
+            <strong> Precio: </strong>
+            <span>{{ salesLine.price | currency }}</span>
+            <div>
+                <p> U: 40%         Q: 21 </p>
+                
+            </div>
+        </div>
+        <div>
+            <span>{{ salesLine.quantity *  salesLine.price | currency}}</span>
+            <div>
+                <p> {{ (salesLine.quantity * salesLine.price ) * 40/100 | currency}} </p>
+            </div>
         </div>
 
-        <button type="button" class="btn btn-danger" (click)="onDeleteCharacter(i)">X</button>
+        <button type="button" class="btn btn-danger" style="background-color: transparent; border-color: transparent" (click)="onDeleteCharacter(salesLine.id!)">X</button>
     </li>
 </ul>

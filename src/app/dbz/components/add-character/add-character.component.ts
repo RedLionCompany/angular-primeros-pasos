@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-import { Character } from '../../interfaces/character.interface';
+import { SalesLine } from '../../interfaces/salesLine.interface';
 
 
 
@@ -11,21 +11,22 @@ import { Character } from '../../interfaces/character.interface';
 export class AddCharacterComponent {
 
   @Output()
-  public onNewCharacter: EventEmitter<Character> = new EventEmitter();
+  public onNewCharacter: EventEmitter<SalesLine> = new EventEmitter();
 
 
-  public character:Character = {
+  public salesLine:SalesLine = {
     name: '',
-    power: 0
+    quantity: 0,
+    price: 90000
   }
 
   transferCharacter():void{
-      console.log(this.character);
-      if (this.character.name.length === 0) return;
+      console.log(this.salesLine);
+      if (this.salesLine.name.length === 0) return;
       
-      this.onNewCharacter.emit(this.character);
+      this.onNewCharacter.emit(this.salesLine);
 
-      this.character = {name: '', power: 0}
+      this.salesLine = {name: '', price: 90000, quantity: 0}
   }
 
 }
